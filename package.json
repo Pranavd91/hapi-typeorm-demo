@@ -1,0 +1,19 @@
+{
+  "name": "hapi-typeorm-mongodb",
+  "version": "1.0.0",
+  "description": "hapi-typeorm-mongodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pranavd91/hapi-typeorm-demo.git"
+  },
+  "author": "pranav",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pranavd91/hapi-typeorm-demo/issues"
+  },
+  "homepage": "https://github.com/Pranavd91/hapi-typeorm-demo#readme"
+}
