@@ -4,7 +4,8 @@
   "description": "hapi-typeorm-mongodb",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ts-node-dev": "ts-node-dev"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,19 @@
   "bugs": {
     "url": "https://github.com/Pranavd91/hapi-typeorm-demo/issues"
   },
-  "homepage": "https://github.com/Pranavd91/hapi-typeorm-demo#readme"
+  "homepage": "https://github.com/Pranavd91/hapi-typeorm-demo#readme",
+  "dependencies": {
+    "@hapi/basic": "^7.0.2",
+    "@hapi/hapi": "^21.3.2",
+    "@types/bcrypt": "^5.0.0",
+    "@types/colors": "^1.2.1",
+    "@types/faker": "^6.6.9",
+    "colors": "^1.4.0",
+    "faker": "^6.6.6",
+    "hapi-auth-jwt2": "^10.4.0",
+    "node-emoji": "^2.1.0",
+    "reflect-metadata": "^0.1.13",
+    "ts-node-dev": "^2.0.0",
+    "typeorm": "^0.3.17"
+  }
 }
