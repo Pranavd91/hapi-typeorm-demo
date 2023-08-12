@@ -1,0 +1,7 @@
+
+
+
+
+# TypeORM 
+# Hapi.js
+# Postgresql
