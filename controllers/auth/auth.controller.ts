@@ -19,11 +19,11 @@ export const authController = (): Array<ServerRoute> => {
           accessToken: sign({ ...credentials }, 'getMeFromEnvFile'),
         };
       },
-      // options: {
-      //   auth: {
-      //     strategy: 'simple',
-      //   },
-      // },
+      options: {
+        auth: {
+          strategy: 'simple',
+        },
+      },
     },
     {
       method: 'POST',
