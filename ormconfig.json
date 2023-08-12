@@ -5,6 +5,7 @@
     "username": "postgres",
     "password": "root",
     "database": "hapi",
+    "synchronize":true,
     "entities": ["entities/**/*.ts"]
   }
   

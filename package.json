@@ -20,9 +20,11 @@
   "dependencies": {
     "@hapi/basic": "^7.0.2",
     "@hapi/hapi": "^21.3.2",
+    "@hapi/joi": "^17.1.1",
     "@types/bcrypt": "^5.0.0",
     "@types/colors": "^1.2.1",
     "@types/faker": "^6.6.9",
+    "bcrypt": "^5.1.0",
     "colors": "^1.4.0",
     "faker": "^6.6.6",
     "hapi-auth-jwt2": "^10.4.0",

@@ -6,7 +6,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { SharedProp } from './sharedProp.entity';
-//import { UsersEntity } from './users.entity';
+import { UsersEntity } from './users.entity';
 
 @Entity({ name: 'posts' })
 export class PostsEntity extends SharedProp {
@@ -28,7 +28,7 @@ export class PostsEntity extends SharedProp {
   @Column({ nullable: false, name: 'user_id' })
   userId: number;
 
-  // @ManyToOne(() => UsersEntity, (user: UsersEntity) => user.posts)
-  // @JoinColumn({ name: 'user_id' })
-  // user: UsersEntity;
+  @ManyToOne(() => UsersEntity, (user: UsersEntity) => user.posts)
+  @JoinColumn({ name: 'user_id' })
+  user: UsersEntity;
 }

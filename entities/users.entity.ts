@@ -1,10 +1,11 @@
 import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { SharedProp } from './sharedProp.entity';
+import { PostsEntity } from './posts.entites';
 
 export type UserType = 'admin' | 'user';
 
-@Entity({ name: 'users1' })
-export class UsersEntity1 extends SharedProp {
+@Entity({ name: 'users' })
+export class UsersEntity extends SharedProp {
   constructor(
     firstName: string,
     lastName: string,
@@ -47,11 +48,11 @@ export class UsersEntity1 extends SharedProp {
   @Column({ nullable: false })
   salt: string;
 
-  // @OneToMany(() => PostsEntity, (post: PostsEntity) => post.user, {
-  //   onDelete: 'CASCADE',
-  //   onUpdate: 'CASCADE',
-  // })
-  // posts: Array<PostsEntity>;
+  @OneToMany(() => PostsEntity, (post: PostsEntity) => post.user, {
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
+  posts: Array<PostsEntity>;
 
   accessToken?: string;
 }
