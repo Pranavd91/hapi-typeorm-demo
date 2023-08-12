@@ -1,7 +1,7 @@
 import { Request, ResponseToolkit } from '@hapi/hapi';
-import { Connection, Repository, getConnection } from 'typeorm';
-import { compare, hash, genSalt } from 'bcrypt';
+import { Repository, getConnection } from 'typeorm';
 import { UsersEntity } from './entities';
+import * as bcrypt from 'bcryptjs';
 
 export const validateJWT = () => {
   const con = getConnection('default');
@@ -32,7 +32,7 @@ export const validateBasic = () => {
     if (!user) {
       return { credentials: null, isValid: false };
     }
-    const isValid = (await hash(password, user.salt)) === user.password;
+    const isValid = (await bcrypt.hash(password, user.salt)) === user.password;
     delete user.password;
     delete user.salt;
     // credentials - a credentials object passed back to the application in `request.auth.credentials`.

@@ -1,10 +1,9 @@
-import { Connection, Repository, getConnection } from 'typeorm';
-//import { UsersEntity } from '../';
-import { genSalt } from 'bcrypt';
+import { Repository, getConnection } from 'typeorm';
 import { sign } from 'jsonwebtoken';
 const Joi = require('@hapi/joi');
 import { ServerRoute, Request, ResponseToolkit } from '@hapi/hapi';
 import { UsersEntity } from '../../entities/users.entity';
+import * as bcrypt from 'bcryptjs';
 
 export const authController = (): Array<ServerRoute> => {
   const con = getConnection('default');
@@ -30,14 +29,15 @@ export const authController = (): Array<ServerRoute> => {
       path: '/register',
       async handler({ payload }: Request) {
         try {
-          const {
+          let {
             firstName,
             lastName,
             email,
             password,
             birthOfDate,
           } = payload as Partial<UsersEntity>;
-          const salt = await genSalt();
+          const salt = await bcrypt.genSalt();
+          password = await bcrypt.hash(password, salt);
           const u = new UsersEntity(
             firstName,
             lastName,
