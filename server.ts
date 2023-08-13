@@ -6,6 +6,7 @@ import { userController, postsController, authController } from './controllers';
 import { Connection, createConnection } from 'typeorm';
 import { validateJWT, validateBasic } from './auth';
 const ormConfig = require('./ormconfig.json');
+import { fakeUsers, fakePosts } from './fakingData';
 
 const init = async () => {
   const server: Server = Hapi.server({
@@ -13,6 +14,7 @@ const init = async () => {
     host: 'localhost',
   });
 
+  const fakeFuncs = [fakeUsers, fakePosts];
   await server.register(require('hapi-auth-jwt2'));
   await server.register(require('@hapi/basic'));
   const connection = await createConnection(ormConfig);
@@ -29,6 +31,7 @@ const init = async () => {
     ...authController(),
   ] as Array<ServerRoute>);
   await server.start();
+  //for (const fun of fakeFuncs) await fun();
   console.log(
     get('rocket'),
     `Server running on ${server.info.uri}`.green,
